@@ -12,14 +12,35 @@ export const ContentWithMedia: Block = {
       name: 'content',
     },
     {
-      type: 'upload',
-      name: 'image',
-      relationTo: 'media',
+      type: 'array',
+      name: 'images',
+      fields: [
+        {
+          type: 'upload',
+          name: 'image',
+          relationTo: 'media',
+        },
+      ],
     },
     {
-      type: 'radio',
-      name: 'textPosition',
-      options: ['Left', 'Right'],
+      type: 'group',
+      name: 'button',
+      label: 'Button',
+      fields: [
+        {
+          type: 'text',
+          name: 'label',
+          label: 'Button Label',
+          required: false,
+        },
+        {
+          type: 'relationship',
+          name: 'link',
+          label: 'Link to Page',
+          relationTo: 'pages',
+          required: false,
+        },
+      ],
     },
   ],
 }

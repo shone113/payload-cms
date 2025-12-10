@@ -173,8 +173,16 @@ export interface Page {
           };
           [k: string]: unknown;
         } | null;
-        image?: (number | null) | Media;
-        textPosition?: ('Left' | 'Right') | null;
+        images?:
+          | {
+              image?: (number | null) | Media;
+              id?: string | null;
+            }[]
+          | null;
+        button?: {
+          label?: string | null;
+          link?: (number | null) | Page;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'ContentWithMedia';
@@ -1087,8 +1095,18 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               content?: T;
-              image?: T;
-              textPosition?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              button?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                  };
               id?: T;
               blockName?: T;
             };
