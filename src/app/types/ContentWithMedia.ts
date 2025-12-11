@@ -25,4 +25,5 @@ export interface ContentWithMediaBlock {
       [key: string]: any
     }
   }
+  backgroundImage: any
 }

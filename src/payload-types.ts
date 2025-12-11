@@ -158,6 +158,7 @@ export interface Page {
   id: number;
   blockTest?:
     | {
+        backgroundImage?: (number | null) | Media;
         heading?: {
           root: {
             type: string;
@@ -1114,6 +1115,7 @@ export interface PagesSelect<T extends boolean = true> {
         ContentWithMedia?:
           | T
           | {
+              backgroundImage?: T;
               heading?: T;
               content?: T;
               button?:

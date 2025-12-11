@@ -13,6 +13,7 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
   secondaryHeading,
   images = [],
   secondaryButton,
+  backgroundImage,
 }) => {
   const [current, setCurrent] = useState(0)
 
@@ -24,7 +25,15 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
   const prev = () => setCurrent((c) => (c > 0 ? c - 1 : maxPage))
 
   return (
-    <section id={`block-${id}`} className="my-20 container mx-auto px-4 flex flex-col gap-8">
+    <section
+      id={`block-${id}`}
+      className="my-20 container mx-auto px-4 flex flex-col gap-8"
+      style={{
+        backgroundImage: backgroundImage ? `url(${backgroundImage.url})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="text-center max-w-5xl mx-auto">
         <RichText
           data={heading}

@@ -8,6 +8,12 @@ export const ContentWithMedia: Block = {
   },
   fields: [
     {
+      type: 'upload',
+      name: 'backgroundImage',
+      label: 'Background Image',
+      relationTo: 'media',
+    },
+    {
       type: 'richText',
       name: 'heading',
     },
