@@ -158,7 +158,27 @@ export interface Page {
   id: number;
   blockTest?:
     | {
-        content?: {
+        heading?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        content?: string | null;
+        button?: {
+          label?: string | null;
+          link?: (number | null) | Page;
+        };
+        secondaryHeading?: {
           root: {
             type: string;
             children: {
@@ -179,7 +199,7 @@ export interface Page {
               id?: string | null;
             }[]
           | null;
-        button?: {
+        secondaryButton?: {
           label?: string | null;
           link?: (number | null) | Page;
         };
@@ -1094,14 +1114,22 @@ export interface PagesSelect<T extends boolean = true> {
         ContentWithMedia?:
           | T
           | {
+              heading?: T;
               content?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                  };
+              secondaryHeading?: T;
               images?:
                 | T
                 | {
                     image?: T;
                     id?: T;
                   };
-              button?:
+              secondaryButton?:
                 | T
                 | {
                     label?: T;

@@ -9,7 +9,35 @@ export const ContentWithMedia: Block = {
   fields: [
     {
       type: 'richText',
+      name: 'heading',
+    },
+    {
+      type: 'textarea',
       name: 'content',
+    },
+    {
+      type: 'group',
+      name: 'button',
+      label: 'Button',
+      fields: [
+        {
+          type: 'text',
+          name: 'label',
+          label: 'Button Label',
+          required: false,
+        },
+        {
+          type: 'relationship',
+          name: 'link',
+          label: 'Link to Page',
+          relationTo: 'pages',
+          required: false,
+        },
+      ],
+    },
+    {
+      type: 'richText',
+      name: 'secondaryHeading',
     },
     {
       type: 'array',
@@ -24,7 +52,7 @@ export const ContentWithMedia: Block = {
     },
     {
       type: 'group',
-      name: 'button',
+      name: 'secondaryButton',
       label: 'Button',
       fields: [
         {

@@ -7,9 +7,12 @@ import { Media } from '@/components/Media'
 
 export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: string }> = ({
   id,
+  heading,
   content,
-  images = [],
   button,
+  secondaryHeading,
+  images = [],
+  secondaryButton,
 }) => {
   const [current, setCurrent] = useState(0)
 
@@ -22,10 +25,29 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
 
   return (
     <section id={`block-${id}`} className="my-20 container mx-auto px-4 flex flex-col gap-8">
-      {/* Naslov */}
-      <div className="text-center max-w-3xl mx-auto">
+      <div className="text-center max-w-5xl mx-auto">
         <RichText
-          data={content}
+          data={heading}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white"
+        />
+      </div>
+
+      <div className="relative w-full overflow-hidden">
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-white">{content}</p>
+      </div>
+
+      {button?.link && (
+        <a
+          href={`/${button.link.slug}`}
+          className="inline-block self-end mt-6 px-8 py-1 bg-[#ee5b31] text-white rounded-full text-lg font-semibold hover:bg-[#d84e28] transition"
+        >
+          {button.label ?? 'Learn more'}
+        </a>
+      )}
+
+      <div className="text-center max-w-5xl mx-auto">
+        <RichText
+          data={secondaryHeading}
           className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white"
         />
       </div>
@@ -64,12 +86,12 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
         </button>
       </div>
 
-      {button?.link && (
+      {secondaryButton?.link && (
         <a
-          href={`/${button.link.slug}`}
+          href={`/${secondaryButton.link.slug}`}
           className="inline-block self-end mt-6 px-8 py-1 bg-[#ee5b31] text-white rounded-full text-lg font-semibold hover:bg-[#d84e28] transition"
         >
-          {button.label ?? 'Learn more'}
+          {secondaryButton.label ?? 'Learn more'}
         </a>
       )}
     </section>
