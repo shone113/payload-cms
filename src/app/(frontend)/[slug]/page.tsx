@@ -64,7 +64,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     return <PayloadRedirects url={url} />
   }
 
-  const { hero, layout, blockTest } = page
+  const { hero, layout, blockTest, blockHero } = page
 
   return (
     <article className="pt-16 pb-24">
@@ -76,6 +76,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
+      <RenderBlocks blocks={blockHero ?? []} />
       <RenderBlocks blocks={blockTest ?? []} />
     </article>
   )

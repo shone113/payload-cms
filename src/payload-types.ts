@@ -156,6 +156,22 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: number;
+  blockHero?:
+    | {
+        location?: string | null;
+        date?: string | null;
+        headingLine1?: string | null;
+        headingLine2?: string | null;
+        content?: string | null;
+        button?: {
+          label?: string | null;
+          link?: (number | null) | Page;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'heroBlock';
+      }[]
+    | null;
   blockTest?:
     | {
         backgroundImage?: (number | null) | Media;
@@ -1109,6 +1125,27 @@ export interface PayloadMigration {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  blockHero?:
+    | T
+    | {
+        heroBlock?:
+          | T
+          | {
+              location?: T;
+              date?: T;
+              headingLine1?: T;
+              headingLine2?: T;
+              content?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   blockTest?:
     | T
     | {
