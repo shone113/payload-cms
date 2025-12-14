@@ -27,7 +27,7 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
   return (
     <section
       id={`block-${id}`}
-      className="my-20 container mx-auto px-4 flex flex-col gap-8"
+      className="my-20 w-[80%] mx-auto px-4 flex flex-col gap-8"
       style={{
         backgroundImage: backgroundImage ? `url(${backgroundImage.url})` : undefined,
         backgroundSize: 'cover',
@@ -41,7 +41,7 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
         />
       </div>
 
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden mt-12">
         <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-white">{content}</p>
       </div>
 
@@ -54,7 +54,7 @@ export const ContentWithMediaBlock: React.FC<ContentWithMediaProps & { id?: stri
         </a>
       )}
 
-      <div className="text-center max-w-5xl mx-auto">
+      <div className="text-center max-w-5xl mx-auto mt-20">
         <RichText
           data={secondaryHeading}
           className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white"
