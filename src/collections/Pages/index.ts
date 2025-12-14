@@ -12,6 +12,8 @@ import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
+import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
+import { HeroBlock } from '@/blocks/HeroBlock/config'
 
 import {
   MetaDescriptionField,
@@ -55,6 +57,16 @@ export const Pages: CollectionConfig<'pages'> = {
     useAsTitle: 'title',
   },
   fields: [
+    {
+      type: 'blocks',
+      blocks: [HeroBlock],
+      name: 'blockHero',
+    },
+    {
+      type: 'blocks',
+      blocks: [ContentWithMedia],
+      name: 'blockTest',
+    },
     {
       name: 'title',
       type: 'text',
