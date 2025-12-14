@@ -158,6 +158,7 @@ export interface Page {
   id: number;
   blockHero?:
     | {
+        backgroundImage?: (number | null) | Media;
         location?: string | null;
         date?: string | null;
         headingLine1?: string | null;
@@ -167,6 +168,13 @@ export interface Page {
           label?: string | null;
           link?: (number | null) | Page;
         };
+        stats?:
+          | {
+              number: string;
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'heroBlock';
@@ -1131,6 +1139,7 @@ export interface PagesSelect<T extends boolean = true> {
         heroBlock?:
           | T
           | {
+              backgroundImage?: T;
               location?: T;
               date?: T;
               headingLine1?: T;
@@ -1141,6 +1150,13 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     link?: T;
+                  };
+              stats?:
+                | T
+                | {
+                    number?: T;
+                    label?: T;
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

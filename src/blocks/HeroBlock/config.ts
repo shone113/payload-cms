@@ -8,6 +8,12 @@ export const HeroBlock: Block = {
   },
   fields: [
     {
+      type: 'upload',
+      name: 'backgroundImage',
+      label: 'Background Image',
+      relationTo: 'media',
+    },
+    {
       type: 'textarea',
       name: 'location',
     },
@@ -47,6 +53,14 @@ export const HeroBlock: Block = {
           relationTo: 'pages',
           required: false,
         },
+      ],
+    },
+    {
+      name: 'stats',
+      type: 'array',
+      fields: [
+        { name: 'number', type: 'text', required: true },
+        { name: 'label', type: 'textarea', required: true },
       ],
     },
   ],

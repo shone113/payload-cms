@@ -12,4 +12,10 @@ export interface HeroBlock {
       [key: string]: any
     }
   }
+  stats?: {
+    number: string
+    label: string
+  }[]
+
+  backgroundImage: any
 }
